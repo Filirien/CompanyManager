@@ -40,16 +40,17 @@ namespace CompanyManager.BLL
 
         public EmployeeDTO EditEmployee(EmployeeDTO employeeDto)
         {
-            var updatedEmployee = mapper.Map<Employee>(employeeDto);
-
             var existingEmployee = dbContext.Employees
                 .FirstOrDefault(c => c.Id == employeeDto.Id && c.IsActive);
+            
+            existingEmployee.FirstName = employeeDto.FirstName;
+            existingEmployee.LastName = employeeDto.LastName;
+            existingEmployee.Salary = employeeDto.Salary;
+            existingEmployee.ExperienceLevel = employeeDto.ExperienceLevel;
+            existingEmployee.StartingDate = employeeDto.StartingDate;
+            existingEmployee.VacationDays = employeeDto.VacationDays;
 
-            if (updatedEmployee != null)
-            {
-                mapper.Map(updatedEmployee, existingEmployee);
-                dbContext.SaveChanges();
-            }
+            dbContext.SaveChanges();            
 
             var result = mapper.Map<EmployeeDTO>(existingEmployee);
 

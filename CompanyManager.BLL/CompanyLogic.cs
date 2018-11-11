@@ -46,27 +46,27 @@ namespace CompanyManager.BLL
             var company = dbContext.Companies
                 .Include(c => c.Employees)
                 .FirstOrDefault(c => c.Id == id && c.IsActive);
-
+            if (company == null)
+            {
+                return null;
+            }
             var result = mapper.Map<CompanyDTO>(company);
             result.Employees = mapper.Map<List<EmployeeDTO>>(company.Employees.Where(x => x.IsActive));
 
             return result;
-
         }
 
         public CompanyDTO EditCompany(CompanyDTO companyDto)
         {
-            var updatedCompany = mapper.Map<Company>(companyDto);
-
             var existingCompany = dbContext.Companies
                 .FirstOrDefault(c => c.Id == companyDto.Id && c.IsActive);
+            
+            existingCompany.Name = companyDto.Name;
+            existingCompany.Description = companyDto.Description;
+            existingCompany.Headquarters = companyDto.Headquarters;
 
-            if (updatedCompany != null)
-            {
-                mapper.Map(updatedCompany, existingCompany);
-                dbContext.SaveChanges();
-            }
-
+            dbContext.SaveChanges();
+            
             var result = mapper.Map<CompanyDTO>(existingCompany);
 
             return result;

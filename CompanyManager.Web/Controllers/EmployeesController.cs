@@ -60,7 +60,6 @@ namespace CompanyManager.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                // if model state is not valid, redirect user to AddEmployee page and list validation errors
                 return BadRequest(ModelState);
             }
 

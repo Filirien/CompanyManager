@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.1.4" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="Moq" Version="4.10.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CompanyManager.BLL\CompanyManager.BLL.csproj" />
+    <ProjectReference Include="..\CompanyManager.CompanyMicroservice\CompanyManager.CompanyMicroservice.csproj" />
+    <ProjectReference Include="..\CompanyManager.DAL\CompanyManager.DAL.csproj" />
+    <ProjectReference Include="..\CompanyManager.Models\CompanyManager.Models.csproj" />
+    <ProjectReference Include="..\CompanyManager.Web\CompanyManager.Web.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -10,7 +10,7 @@ namespace CompanyManager.Models.DTOs.Employees
         public string LastName { get; set; }
 
         public ExperienceLevel ExperienceLevel { get; set; }
-
+        
         public DateTime StartingDate { get; set; }
 
         public decimal Salary { get; set; }
