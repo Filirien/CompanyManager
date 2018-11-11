@@ -17,8 +17,4 @@
     <ProjectReference Include="..\CompanyManager.Models\CompanyManager.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Employees\" />
-  </ItemGroup>
-
 </Project>

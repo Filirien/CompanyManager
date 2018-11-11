@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@foreach (var company in Model)
+{
+    <tr>
+        <td>
+            @company.Name
+        </td>
+        <td>
+            @company.Description
+        </td>
+        <td>
+            @company.Headquarters
+        </td>
+        <td>
+            <a href="/companies/details/@company.Id" class="btn btn-default">Details</a>
+            <a href="/companies/edit/@company.Id" class="btn btn-warning">Edit</a>
+            <a href="/companies/delete/@company.Id" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+}

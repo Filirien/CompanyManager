@@ -19,7 +19,8 @@ namespace CompanyManager.DAL.Entities
 
         [Required]
         public ExperienceLevel ExperienceLevel { get; set; }
-        
+
+        [DisplayFormat(DataFormatString = "{0:dd-MMMM-yyyy}")]
         public DateTime StartingDate { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]

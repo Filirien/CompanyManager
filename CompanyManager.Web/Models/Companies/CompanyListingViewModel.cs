@@ -1,16 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CompanyManager.Models.DTOs.Employees;
+using System.Collections.Generic;
 
 namespace CompanyManager.Web.Models.Companies
 {
-    public class AddCompanyViewModel
+    public class CompanyListingViewModel
     {
-        [Required]
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
-        [StringLength(1000)]
         public string Description { get; set; }
 
-        [MinLength(5)]
         public string Headquarters { get; set; }
     }
 }

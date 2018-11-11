@@ -5,8 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CompanyManager.Web.Models.Employees
 {
-    public class AddEmployeeViewModel
+    public class EmployeeViewModel
     {
+        public int Id { get; set; }
+
         [Required]
         [MinLength(3)]
         public string FirstName { get; set; }

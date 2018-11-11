@@ -40,7 +40,8 @@ namespace CompanyManager.CompanyMicroservice
 
             services.AddTransient<IServiceBusResponder, ServiceBusResponder>();
             services.AddTransient<ICompanyLogic, CompanyLogic>();
-
+            services.AddTransient<IEmployeeLogic, EmployeeLogic>();
+            
             // Cause a problem when AddMigration is runned in PackageManagerConsole!!!
             IBus bus = RabbitHutch.CreateBus("host=localhost");
             services.AddSingleton(bus);

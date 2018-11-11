@@ -1,0 +1,64 @@
+﻿@model CompanyDetailsViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="row">
+    <div class="box box-center">
+        <h3>Company: @Model.Name</h3>
+        <hr />
+        <p>Description: @Model.Description</p>
+        <p>Headquarters: @Model.Headquarters</p>
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Experience Level</th>
+                    <th>Starting Date</th>
+                    <th>Salary</th>
+                    <th>Vacation Days</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var employee in Model.Employees)
+                {
+                    <tr>
+                        <td>@employee.FirstName</td>
+                        <td>@employee.LastName</td>
+                        <td>@employee.ExperienceLevel</td>
+                        <td>@employee.StartingDate.ToShortDateString()</td>
+                        <td>@employee.Salary</td>
+                        <td>@employee.VacationDays</td>
+                        <td>
+                            <a href="/employees/edit/@employee.Id" class="btn btn-warning">Edit</a>
+                            <a href="/employees/delete/@employee.Id" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">Delete</a>
+                        </td>
+                    </tr>
+                }
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="/employees/add/@Model.Id" class="btn btn-success">Add Employee</a>
+                        </td>
+                    </tr>
+                </tfoot>
+
+            </table>
+
+            <hr />
+            <div>
+                <a href="/companies/edit/@Model.Id" class="btn btn-warning">Edit</a>
+                <a href="/companies/delete/@Model.Id" class="btn btn-danger">Delete</a>
+                <a href="/companies/all" class="btn btn-default">Back</a>
+            </div>
+        </div>
+    </div>
+</div>

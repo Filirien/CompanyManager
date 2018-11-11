@@ -1,0 +1,34 @@
+﻿@model IEnumerable<CompanyListingViewModel>
+@{
+    ViewData["Title"] = "All";
+}
+    <h2 class="text-center">All companies</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Headquarters)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @await Html.PartialAsync("_ListingAllForm", Model)
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="/companies/add" class="btn btn-success">Add Company</a></td>
+        </tr>
+    </tfoot>
+</table>

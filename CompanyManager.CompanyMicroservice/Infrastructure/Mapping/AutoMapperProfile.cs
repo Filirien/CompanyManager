@@ -10,8 +10,10 @@ namespace CompanyManager.CompanyMicroservice.Infrastructure.Mapping
         public AutoMapperProfile()
         {
             CreateMap<AddCompanyDTO, Company>();
-            CreateMap<Company, CompanyDTO>();
-            CreateMap<Employee, EmployeeDTO>();
+            CreateMap<Company, CompanyDTO>().ReverseMap();
+            CreateMap<Employee, EmployeeDTO>().ReverseMap();
+            CreateMap<Company,ListingCompanyDTO>();
+            CreateMap<AddEmployeeDTO, Employee>();
         }
     }
 }
